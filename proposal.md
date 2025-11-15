@@ -48,9 +48,9 @@ This approach directly models the interaction of lineup archetypes, addressing t
 Given the binary nature of our target variable (Pacers_Win), this project will formulate the problem as a binary classification task. Due to the small dataset size (N=105), we will prioritize models that are less prone to overfitting and offer high interpretability.
 
 - Selected Models: We will implement and compare several classification algorithms:
-  - Logistic Regression: A baseline model that is highly interpretable, allowing us to quantify how the presence of specific Pacers or opponent archetypes directly impacts the log-odds of winning.
-  - K-Nearest Neighbors (K-NN): This model works by finding the 'k' most similar games from the past (the "nearest neighbors") and then predicting the outcome based on how those similar games turned out. It's a good, straightforward approach for a "pattern matching" problem like this.
-  - Naive Bayes: The Naive Bayes probabilistic classifier calculates the likelihood of a win or loss given the lineup archetypes. Since the dataset is smaller, this classifier would likely perform quite well.
+  - **Logistic Regression**: A baseline model that is highly interpretable, allowing us to quantify how the presence of specific Pacers or opponent archetypes directly impacts the log-odds of winning.
+  - **K-Nearest Neighbors (K-NN)**: This model works by finding the 'k' most similar games from the past (the "nearest neighbors") and then predicting the outcome based on how those similar games turned out. It's a good, straightforward approach for a "pattern matching" problem like this.
+  - **Naive Bayes**: The Naive Bayes probabilistic classifier calculates the likelihood of a win or loss given the lineup archetypes. Since the dataset is smaller, this classifier could perform quite well.
 - Model Validation: A simple train-test split would be unreliable with only 105 data points. Therefore, we will employ 10-fold cross-validation to generate a stronger estimate of each model's performance. The data will be shuffled and split into 10 subsets; the model will be trained 10 times, each time using 9 of the subsets for training and 1 for testing.
 - Evaluation Metrics: Model performance will be assessed using a suite of standard classification metrics:
   - Accuracy: The overall percentage of correctly predicted game outcomes.
