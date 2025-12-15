@@ -2,10 +2,10 @@
 The dataset for this project will be constructed from publicly available NBA game data, sourced from sports statistics APIs (e.g., nba\_api) or comprehensive basketball data websites (e.g., Basketball-Reference.com). The dataset will encompass all 105 games (82 regular season, 23 playoff) played by the Indiana Pacers during the 2024-2025 season.
 
 For each of these 105 games, we will collect:
-\begin{enumerate}
-    \item[-] Game-level data: Date, opponent, location (home/away), and final score.
-    \item[-] Player-level data: Detailed box scores for every player who participated in each game (for both the Pacers and their opponent). This includes minutes played (MP) and standard counting stats (points, rebounds, assists, steals, blocks, turnovers, fouls, FGA, FGM, 3PA, 3PM, FTA, FTM).
-\end{enumerate}
+\begin{itemize}
+    \item Game-level data: Date, opponent, location (home/away), and final score.
+    \item Player-level data: Detailed box scores for every player who participated in each game (for both the Pacers and their opponent). This includes minutes played (MP) and standard counting stats (points, rebounds, assists, steals, blocks, turnovers, fouls, FGA, FGM, 3PA, 3PM, FTA, FTM).
+\end{itemize}
 The raw data will be preprocessed into a structured format where each row represents a single game $(N=105)$. The primary target variable will be a binary outcome: Pacers\_Win (1 for a win, 0 for a loss). All other collected data will be used to engineer predictive features. Preprocessing will also involve handling missing values, such as for players who were on the roster but did not play (DNP).
 
 \subsection{Feature Engineering: Player Archetypes}
@@ -18,7 +18,7 @@ A central component of our methodology is to move beyond individual player stati
     \item Game-level Feature Vector: For each of the 105 games, we will create a feature vector representing the lineup composition. This vector will be a count of how many players belonging to each archetype were among the top five minute-getters for that game. This will be done for both the Pacers and their opponent.
 \end{itemize}
 
-\subsubsection{The final feature set for each game will include}
+The final feature set for each game will include:
 
 \begin{itemize}
     \item Pacers\_Archetype\_1\_Count
@@ -46,7 +46,8 @@ We will implement and compare several classification algorithms:
 \subsubsection{Model Validation}
 A simple train-test split would be unreliable with only 105 data points. Therefore, we will employ 10-fold cross-validation to generate a stronger estimate of each model's performance. The data will be shuffled and split into 10 subsets; the model will be trained 10 times, each time using 9 of the subsets for training and 1 for testing.
 
-Evaluation Metrics: Model performance will be assessed using a suite of standard classification metrics:
+\subsubsection{Evaluation Metrics}
+Model performance will be assessed using a suite of standard classification metrics:
 \begin{itemize}
     \item \textbf{Accuracy}: The overall percentage of correctly predicted game outcomes.
     \item \textbf{Precision, Recall, and F1-Score}: These metrics are especially crucial if the win-loss record is imbalanced (e.g., if the Pacers had a 70-win season, a model that always predicts "Win" would have high accuracy but zero utility).
