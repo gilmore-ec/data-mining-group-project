@@ -1,0 +1,25 @@
+name: Build LaTeX Document
+
+on:
+  push:
+    branches:
+      - automation-testing
+
+jobs:
+  build_latex:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Compile LaTeX to PDF
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: report.tex
+
+      - name: Upload PDF Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: report-pdf
+          path: report.pdf
