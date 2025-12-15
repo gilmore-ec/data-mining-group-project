@@ -3,7 +3,7 @@ name: Build LaTeX Document
 on:
   push:
     branches:
-      - automation-testing
+      - main
 
 jobs:
   build_latex:
