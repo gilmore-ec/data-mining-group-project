@@ -15,3 +15,16 @@ We applied K-Means clustering to identify different player archetypes based on p
     \caption{Player Archetype per 36 Minutes Stats}
     \label{fig:placeholder}
 \end{figure}
+\subsection{Model Evaluation}
+Three classification algorithms, K-Nearest Neighbors (KNN), Naïve Bayes, and Logistic Regression, were evaluated on the dataset. Their performance is shown in Figure 2
+\begin{itemize}
+    \item \textbf{KNN}: achieved the highest overall accuracy 0.62 but failed to correctly classify any losses. KNN had a strong performance for classifying wins with precision being 0.68, recall being 0.87, and F1-score being 0.76.
+    \item \textbf{Naive Bayes}: obtained an accuracy of 0.57. The Naïve Bayes algorithm did demonstrate a slightly better time at classifying losses with precision being 0.20, recall being 0.17, and F1-score being 0.18. The Naïve Bayes algorithm like the KNN algorithm stayed strong at classifying wins with precision being 0.69, recall being 0.73 and F1-score being 0.71.
+    \item \textbf{Logistic Regression}: had the lowest accuracy of 0.52 and also did a slightly better time at classifying losses compared to KNN with precision being 0.17, recall being 0.17, and F1-score being 0.17. Logistic Regression like the other algorithms performed wall at classifying wins with precision being 0.67, recall being 0.67, and F1-score being 0.67. 
+\end{itemize}
+\begin{figure}
+    \centering
+    \includegraphics[width=1\linewidth]{B365_Final_Report_ModelComparison.png}
+    \caption{Model Performance Comparison}
+    \label{fig:placeholder}
+\end{figure}
